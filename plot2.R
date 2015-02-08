@@ -1,0 +1,6 @@
+png("plot2.png")
+data <- read.csv("household_power_consumption.txt", header = T, sep = ";", na.strings = "?", stringsAsFactors = F)
+data <- subset(data, Date %in% c("1/2/2007", "2/2/2007"))
+plot(data$Global_active_power, type = "l", ylab = "Global Active Power (kilowatts)", xaxt = 'n', xlab = "")
+axis(1, c(1, which(data$Date == "2/2/2007")[1], nrow(data)), c("Thu", "Fri", "Sat"))
+dev.off()

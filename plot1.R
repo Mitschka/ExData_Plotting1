@@ -1,0 +1,5 @@
+png("plot1.png")
+data <- read.csv("household_power_consumption.txt", header = T, sep = ";", na.strings = "?", stringsAsFactors = F)
+data <- subset(data, Date %in% c("1/2/2007", "2/2/2007"))
+hist(data$Global_active_power, xlab = "Global Active Power (kilowatts)", col = "red", main = "Global Active Power")
+dev.off()
